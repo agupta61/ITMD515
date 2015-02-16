@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/secureTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        Customer Details
+    </ui:define>
+
+    <ui:define name="body">
+        <h:outputText value="&lt;br/&gt;" escape="false" />
+        <h:outputText value="Please Change the Details and press Submit. " style="font-weight: bolder" />   
+        <h:outputText value="&lt;br/&gt;" escape="false" />
+        <h:outputText value="&lt;br/&gt;" escape="false" />
+            <h:form>
+                <h:messages errorClass="errorMessage" infoClass="infoMessage" style="color: red"
+            warnClass="warnMessage"></h:messages>    
+             <h:panelGrid columns="8" style="margin: 0 auto;">   
+            <h:outputText value="User Name:&nbsp;"></h:outputText>
+            <h:outputText  class="form-control" value="#{facesContext.externalContext.remoteUser}"></h:outputText>
+            
+            <h:outputText value="&nbsp;&nbsp;Full Name:&nbsp;"></h:outputText>
+            <h:inputText required="true" requiredMessage="Name can not be left blank!" class="form-control" value="#{customerDetails.customer.name}"></h:inputText> 
+            
+            <h:outputText value="&nbsp;&nbsp;Date of Birth:&nbsp;"></h:outputText>
+            <h:inputText required="true" requiredMessage="DOB can not be left blank!" class="form-control" value="#{customerDetails.customer.dob}">
+            <f:convertDateTime  pattern="MM-dd-yyyy"/>
+            </h:inputText>
+            
+            
+            <h:outputText value="&nbsp;&nbsp;Email:&nbsp;"></h:outputText>
+            <h:inputText required="true" requiredMessage="Email can not be left blank!" class="form-control" value="#{customerDetails.customer.email}"></h:inputText> 
+            
+             
+            <h:outputText value="&nbsp;&nbsp;Phone No:&nbsp;"></h:outputText>
+            <h:inputText required="true" requiredMessage="Phone no can not be left blank!" class="form-control" value="#{customerDetails.customer.phoneno}"></h:inputText> 
+            
+             
+            <h:outputText value="&nbsp;&nbsp;Address First Line:&nbsp;"></h:outputText>
+            <h:inputText required="true" requiredMessage="Address can not be left blank!" class="form-control" value="#{customerDetails.address.addFirstLine}"></h:inputText> 
+            
+             
+            <h:outputText value="&nbsp;&nbsp;Street:&nbsp;"></h:outputText>
+            <h:inputText required="true" requiredMessage="Street can not be left blank!" class="form-control" value="#{customerDetails.address.street}"></h:inputText> 
+            
+            
+            <h:outputText value="&nbsp;&nbsp;ZIP: "></h:outputText>
+            <h:inputText required="true" requiredMessage="ZIP can not be left blank!" class="form-control" value="#{customerDetails.address.zip}"></h:inputText> 
+           
+             
+            <h:outputText value="&nbsp;&nbsp;City:&nbsp;"></h:outputText>
+            <h:inputText required="true" requiredMessage="City can not be left blank!" class="form-control" value="#{customerDetails.address.city}"></h:inputText> 
+            
+            
+            <h:outputText value="&nbsp;&nbsp;State:&nbsp;"></h:outputText>
+            <h:inputText required="true" requiredMessage="State can not be left blank!" class="form-control" value="#{customerDetails.address.state}"></h:inputText> 
+            
+            
+            <h:outputText value="&nbsp;&nbsp;Country:&nbsp;"></h:outputText>
+            <h:inputText required="true" requiredMessage="Country can not be left blank!" class="form-control" value="#{customerDetails.address.country}"></h:inputText> 
+            
+            <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+
+                
+             
+            <h:commandButton type="submit" value="Submit"
+                             action="#{customerDetails.executeUpdate()}"></h:commandButton>
+            
+                 </h:panelGrid>   
+            </h:form>
+        <h:outputText value="&lt;br/&gt;" escape="false" />
+        
+        <h:form><h:outputLabel  value="  &nbsp;&nbsp;  &nbsp;"/><h:commandButton  action="/customerPortal/welcome.xhtml" value="Back"></h:commandButton></h:form>
+        <h:outputText value="&lt;br/&gt;" escape="false" />
+    </ui:define>
+
+</ui:composition>

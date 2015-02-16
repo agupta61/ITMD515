@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>login.xhtml</welcome-file>
+    </welcome-file-list>
+    <security-constraint>
+        <display-name>Customer</display-name>
+        <web-resource-collection>
+            <web-resource-name>Customer Only</web-resource-name>
+            <description>Customer Security</description>
+            <url-pattern>/customerPortal/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>Customer Role</description>
+            <role-name>cust</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>Provider</display-name>
+        <web-resource-collection>
+            <web-resource-name>Provider Only</web-resource-name>
+            <description>Provider Security</description>
+            <url-pattern>/providerPortal/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>Provider Role</description>
+            <role-name>prov</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>SuperUser</display-name>
+        <web-resource-collection>
+            <web-resource-name>SuperUser Only</web-resource-name>
+            <description>SuperUser Security</description>
+            <url-pattern>/superUserPortal/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>SuperUser Role</description>
+            <role-name>super</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>itmd4515Realm</realm-name>
+        <form-login-config>
+            <form-login-page>/login.xhtml</form-login-page>
+            <form-error-page>/error.xhtml</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description/>
+        <role-name>cust</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>prov</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>super</role-name>
+    </security-role>
+</web-app>

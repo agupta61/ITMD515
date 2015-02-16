@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/publicTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        User Registration
+    </ui:define>
+   
+    <ui:define name="body">
+        <h:outputText value="&lt;br/&gt;" escape="false" />
+                <h:messages errorClass="errorMessage" infoClass="infoMessage" style="color: red"
+                            warnClass="warnMessage"></h:messages> 
+        
+            <h:form>
+                
+  
+                <h:panelGrid columns="2" style="margin: 0 auto;">
+            
+            <h:outputText value="User Name:"></h:outputText>
+            <h:inputText class="form-control" id="username" value="#{customerDetails.user.userName}" required="true" requiredMessage="Please Enter  User Name!"></h:inputText>
+            <h:outputText value="Password:"></h:outputText>
+            <h:inputText class="form-control" id="password" value="#{customerDetails.user.password}" required="true" requiredMessage="Please Enter  Password!"></h:inputText>            
+            <h:outputText value="FULL Name:"></h:outputText>
+            <h:inputText class="form-control" id="name" value="#{customerDetails.customer.name}"
+                required="true" requiredMessage="Please Enter  FULL Name!"></h:inputText>
+            <h:outputText value="Date of Birth:"></h:outputText>
+            <h:inputText class="form-control" id="dob" value="#{customerDetails.customer.dob}"
+                required="true" requiredMessage="Please Enter DOB!"> 
+            <f:convertDateTime  pattern="MM-dd-yy" />
+            </h:inputText>
+            <h:outputText value="Email:"></h:outputText>
+            <h:inputText class="form-control" id="email" value="#{customerDetails.customer.email}"
+                required="true" requiredMessage="Please Enter EMAIL!">
+            </h:inputText>  
+            <h:outputText value="Phone No:"></h:outputText>
+            <h:inputText class="form-control" id="phoneno" value="#{customerDetails.customer.phoneno}"
+                required="true" requiredMessage="Please Enter PhoneNO!"></h:inputText>     
+          
+            <h:outputText value="First Address Line:"></h:outputText>
+            <h:inputText class="form-control" id="firstaddressline" value="#{customerDetails.address.addFirstLine}"
+                required="true" requiredMessage="Please Enter First Address Line!"></h:inputText>
+            <h:outputText value="Street:"></h:outputText>
+            <h:inputText class="form-control" id="street" value="#{customerDetails.address.street}"
+                required="true" requiredMessage="Please Enter City!"></h:inputText>             
+            <h:outputText value="City:"></h:outputText>
+            <h:inputText class="form-control" id="city" value="#{customerDetails.address.city}"
+                required="true" requiredMessage="Please Enter City!"></h:inputText>
+            <h:outputText value="ZIP:"></h:outputText>
+            <h:inputText class="form-control" id="zip" value="#{customerDetails.address.zip}"
+                required="true" requiredMessage="Please Enter ZIP!"></h:inputText>
+            <h:outputText value="State:"></h:outputText>
+            <h:inputText class="form-control" id="state" value="#{customerDetails.address.state}"
+                required="true" requiredMessage="Please Enter STATE!"></h:inputText>            
+            <h:outputText value="Country:"></h:outputText>
+            <h:inputText class="form-control" id="country" value="#{customerDetails.address.country}"
+                required="true" requiredMessage="Please Enter Country!"></h:inputText>           
+            
+            <h:commandButton type="submit" value="Submit"
+                             action="#{customerDetails.doRegisterUser()}"></h:commandButton>
+            <h:commandButton type="reset" value="Reset"/>
+                </h:panelGrid> 
+            </h:form>
+        <h:form><h:commandLink  value="Back to Home"
+                               action="/login.xhtml"/></h:form>
+    </ui:define>
+
+</ui:composition>

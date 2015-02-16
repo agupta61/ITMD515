@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/secureTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        Customer Details
+    </ui:define>
+
+    <ui:define name="body">
+        <h:outputText value="&lt;br/&gt;" escape="false" />
+        <h:outputText value="Please fill the Account information below then press Confirm. " style="font-weight: bolder" />   
+        <h:outputText value="&lt;br/&gt;" escape="false" />
+        <h:outputText value="&lt;br/&gt;" escape="false" />
+            <h:form>
+                <h:messages errorClass="errorMessage" infoClass="infoMessage" style="color: red"
+            warnClass="warnMessage"></h:messages>    
+             <h:panelGrid columns="8" style="margin: 0 auto;">   
+                 
+              
+              <h:outputText value="User Name:&nbsp;"></h:outputText>
+            <h:outputText class="form-control" value="#{facesContext.externalContext.remoteUser}"></h:outputText>
+              
+            
+            <h:outputText value="&nbsp;&nbsp;Product Selected:&nbsp;"></h:outputText>
+            <h:outputText  class="form-control" value="#{customerDetails.product.id}"></h:outputText> 
+            
+           
+            <h:outputText value="&nbsp;&nbsp;Full Name:&nbsp;"></h:outputText>
+            <h:outputText class="form-control" value="#{customerDetails.customer.name}"></h:outputText> 
+            
+            
+            <h:outputText value="&nbsp;&nbsp;Date of Birth:&nbsp;"></h:outputText>
+            <h:outputText class="form-control" value="#{customerDetails.customer.dob}">
+                    <f:convertDateTime  pattern="MM-dd-yyyy"/>
+                </h:outputText>
+            
+            
+            <h:outputText value="Email:&nbsp;"></h:outputText>
+            <h:outputText  class="form-control" value="#{customerDetails.customer.email}"></h:outputText> 
+            
+             
+            <h:outputText value="&nbsp;&nbsp;Phone No:&nbsp;"></h:outputText>
+            <h:outputText class="form-control" value="#{customerDetails.customer.phoneno}"></h:outputText> 
+            
+             
+            <h:outputText value="&nbsp;&nbsp;Address First Line:&nbsp;"></h:outputText>
+            <h:outputText class="form-control" value="#{customerDetails.address.addFirstLine}"></h:outputText> 
+            
+             
+            <h:outputText value="&nbsp;&nbsp;Street:&nbsp;"></h:outputText>
+            <h:outputText class="form-control" value="#{customerDetails.address.street}"></h:outputText> 
+            
+            
+            <h:outputText value="ZIP: "></h:outputText>
+            <h:outputText class="form-control" value="#{customerDetails.address.zip}"></h:outputText> 
+           
+             
+            <h:outputText value="&nbsp;&nbsp;City:&nbsp;"></h:outputText>
+            <h:outputText class="form-control" value="#{customerDetails.address.city}"></h:outputText> 
+            
+            
+            <h:outputText value="&nbsp;&nbsp;State:&nbsp;"></h:outputText>
+            <h:outputText class="form-control" value="#{customerDetails.address.state}"></h:outputText> 
+            
+            
+            <h:outputText value="&nbsp;&nbsp;Country:&nbsp;"></h:outputText>
+            <h:outputText class="form-control" value="#{customerDetails.address.country}"></h:outputText> 
+            
+            
+                
+                    <h:outputLabel for="accountno" value="Account No&nbsp;"/>
+                    <h:inputText   binding="#{accountno}" id="accountno" class="form-control" value="#{customerDetails.account.accountNo}"/>
+                   
+                   
+                
+               
+                    <h:outputLabel for="bankName" value="&nbsp;Bank Name&nbsp;"/>
+                    <h:selectOneMenu id= "bankName" value="#{customerDetails.account.bankName}" class="form-control" >
+   	<f:selectItem itemValue="PNC" itemLabel="PNC BANK" />
+   	<f:selectItem itemValue="BANK OF AMERICA" itemLabel="BANK OF AMERICA" />
+   	<f:selectItem itemValue="CITI BANK" itemLabel="CITI BANK" />
+                    </h:selectOneMenu>
+                  
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     <h:outputLabel  value=""/>
+                     
+                     <h:outputLabel  value=""/>
+                
+             
+            <h:commandButton type="submit" value="Submit"
+                             action="#{customerDetails.saveCustomerDetails}"></h:commandButton>
+            
+                 </h:panelGrid>   
+            </h:form>
+        <h:outputText value="&lt;br/&gt;" escape="false" />
+        <h:form> <h:commandButton  action="/customerPortal/userHome.xhtml" value="Back"></h:commandButton></h:form>
+        <h:outputText value="&lt;br/&gt;" escape="false" />
+    </ui:define>
+
+</ui:composition>

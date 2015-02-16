@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/publicTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="title">
+        User Login
+    </ui:define>
+            
+            <ui:define name="body">
+                <br></br>
+                <h:form >
+                    <h:panelGroup  rendered="#{not jUsername.valid}"  layout="block" class="alert alert-warning alert-dismissible">
+            
+                       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                       <h:messages style="color: red" for="j_username"/>
+            
+                    </h:panelGroup>                    
+                    <h:panelGroup rendered="#{not jPassword.valid}" layout="block" class="alert alert-warning alert-dismissible">
+            
+                       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                       <h:messages style="color: red" for="j_password"/>
+            
+                    </h:panelGroup>
+                    <h:panelGrid columns="2" class="form-group" style="margin: 0 auto;">
+                        <h:outputLabel for="j_username" value="Username &nbsp;&nbsp;&nbsp;&nbsp;"/>
+                    <h:inputText binding="#{jUsername}" id="j_username" class="form-control" value="#{loginController.username}"/>
+                  
+
+                    
+                   
+
+                    <h:outputLabel for="j_password" value="Password &nbsp;&nbsp;&nbsp;&nbsp;"/>
+                    <h:inputSecret binding="#{jPassword}" id="j_password" class="form-control" value="#{loginController.password}"/>
+                    
+
+                    <br></br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h:commandButton type="submit" value="Login"  action="#{loginController.doLogin()}"/>
+                </h:panelGrid>                
+                   
+                   
+                </h:form>
+                 
+                 <h:form style="alignment-baseline: ">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <h:commandButton value="Customer Resigster"  action="/userRegister.xhtml"/>&nbsp;&nbsp;
+                    <h:commandButton value="Provider Resigster"  action="/providerRegistration.xhtml"/>&nbsp;&nbsp;
+                    
+                    
+                </h:form>  
+                <h:form><h:commandButton value="Java Doc"  action="/javadoc/index.html"/></h:form>
+            </ui:define>
+
+        </ui:composition>
+
+

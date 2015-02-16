@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/secureTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        Update Product!
+    </ui:define>
+
+    <ui:define name="body">
+        <h:outputText value="&lt;br/&gt;" escape="false" />
+              <h:outputText value="Please Update the Product information below then press Confirm. " style="font-weight: bolder" />   
+             <h:outputText value="&lt;br/&gt;" escape="false" />
+             <h:outputText value="&lt;br/&gt;" escape="false" />
+            <h:form>
+            <h:panelGrid columns="2" class="form-group" >
+            <h:outputLabel for="productID" value="Product ID &nbsp;" />
+            <h:outputText class="form-control" id="productID" value="#{providerController.service.id}"/>
+             
+           
+            
+            <h:outputLabel for="productName" value="Product Name&nbsp;" />
+            <h:inputText class="form-control" id="productName" value="#{providerController.service.serviceName}"/>
+                </h:panelGrid>
+       
+                
+             <h:commandButton type="submit" value="Update"
+                              action="#{providerController.executeUpdate}"></h:commandButton>&nbsp;&nbsp;&nbsp;&nbsp;
+            
+                 
+            </h:form> 
+             <h:form><h:commandButton  action="/providerPortal/welcome.xhtml" value="Back"></h:commandButton></h:form>
+    </ui:define>
+
+</ui:composition>
